@@ -16,7 +16,7 @@ class StringCalculator
   end
 
   def parts
-    /\A(?:\/\/(.*)\n)?(.*)/.match(string)
+    /\A(?:\/\/(.*)\n)?(.*)/m.match(original_string)
   end
 
   def blank?
@@ -24,8 +24,7 @@ class StringCalculator
   end
 
   def delimiters
-    if custom_delimiters_prefix?
-      string.scan(%r{\[(.+?)\]}).flatten
+    [",", ";", "\n"] + custom_delimiters
   end
 
   def escaped_delimiters
@@ -33,20 +32,20 @@ class StringCalculator
   end
 
   def string
-    processed_string[2]
+    parts[2]
   end
 
   def first_line
-    string.lines.first
+    parts[1]
   end
 
   def custom_delimiters_prefix?
-    first_line[0,2] == "//"
+    !!first_line
   end
 
   def custom_delimiters
     return [] unless custom_delimiters_prefix?
-    first_line.scan(%r{\[(.+?)\]}).flatten
+    first_line.scan(%r{\[(.+?)\]}).flatten.map {|d| Regexp.escape(d) }
   end
 
   def splitter
@@ -54,7 +53,7 @@ class StringCalculator
   end
 
   def numbers
-    string.split(splitter).map &:to_f
+    string.split(splitter).map &:to_i
   end
 
   def negative_numbers
