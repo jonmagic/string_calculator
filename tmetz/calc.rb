@@ -53,8 +53,3 @@ test("1\n5,3,5\n6", 20)
 test("//;\n1;2", 3)
 test("//<=>\n3<=>2<=>11", 16)
 test("9,-1,2,-33", "negatives not allowed -1 -33")
-# puts(StringCalculator.Add("1\n2,8,22\n5"))
-# puts(StringCalculator.Add(""))
-# my_str = "1\n2,8,22"
-# puts(my_str[1])
-# puts(my_str[2])
