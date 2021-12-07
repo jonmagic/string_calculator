@@ -19,11 +19,11 @@ class StringCalculator
     # the following input is ok: “1\n2,3” (will equal 6)
     # the following input is NOT ok: “1,\n” (not need to prove it - just clarifying)
 
-    def self.Add(number_string)
-        #numbers = number_string.split(",")
-        numbers = number_string.split(/,|\n/)
+    def self.Add(numbers)
+        
+        number_arr = numbers.split(/,|\n/)
         total = 0
-        numbers.each do |number|
+        number_arr.each do |number|
             total += number.to_i
         end
         return total  
