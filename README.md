@@ -11,3 +11,4 @@ So far I've pair programmed with these people on this kata:
 * @jonmagic https://github.com/jonmagic/string_calculator/tree/master/jonmagic
 * @nickh https://github.com/jonmagic/string_calculator/tree/master/nickh
 * @pedromtavares https://github.com/jonmagic/string_calculator/tree/master/pedromtavares
+* @nate-browne https://github.com/jonmagic/string_calculator/tree/master/nate-browne
